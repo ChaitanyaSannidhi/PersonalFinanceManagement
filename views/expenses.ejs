@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses Dashboard</title>
+    <link rel="stylesheet" href="/css/expenses.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Expenses Dashboard</h1>
+        </header>
+
+        <main class="dashboard-main">
+            <section class="form-section">
+                <h2>Add a New Expense</h2>
+                <form id="finance-form" method="POST" action="/expenses">
+                    <div class="form-field">
+                        <input type="text" id="expense-name" name="expensename" placeholder="Enter Expense Name" required>
+                    </div>
+                    <div class="form-field">
+                        <input type="number" id="expense-amount" name="expenseamount" placeholder="Enter Amount" required>
+                    </div>
+                    <div class="form-field">
+                        <select id="expense-category" name="expensecategory" required>
+                            <option value="" disabled selected>Select Category</option>
+                            <option value="Food">Maintainance</option>
+                            <option value="Transport">Health</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <input type="date" id="expense-date" name="expensedate" required>
+                    </div>
+                    <button type="submit" class="add-btn">Add Expense</button>
+                </form>
+            </section>
+
+            <section class="expense-section">
+                <h2>Expense List</h2>
+                <div class="expense-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Expense Name</th>
+                                <th>Amount</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody id="expense-list">
+                            <% expenses.forEach(expense => { %>
+                                <tr>
+                                    <td><%= expense.expensename %></td>
+                                    <td><%= expense.expenseamount %></td>
+                                    <td><%= expense.expensecategory %></td>
+                                    <td><%= expense.expensedate %></td>
+                                    
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="total-expenses">
+                    <h3>Total Expenses: $<span id="total-expenses"><%= totalExpenses.toFixed(2) %></span></h3>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance Tracker</title>
+  <link rel="stylesheet" href="/css/insurance.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Insurance Tracker</h1>
+
+    <form id="insuranceForm" action="/insurance" method="POST">
+      <label for="insurancename">Insurance Type:</label>
+      <input type="text" id="insurancename" name="insurancename" required>
+
+      <label for="insuranceamount">Amount:</label>
+      <input type="number" id="insuranceamount" name="insuranceamount" required>
+
+      <label for="insurancedate">Due Date:</label>
+      <input type="date" id="insurancedate" name="insurancedate" required>
+
+      <button type="submit">Add Insurance</button>
+    </form>
+
+    <h2>Total Insurance Payments: $<span id="totalInsurance"><%= totalInsurance %></span></h2>
+
+    <ul id="insuranceList">
+      <% insurances.forEach(function(insurance) { %>
+        <li>
+          <strong><%= insurance.insurancename %>:</strong> $<%= insurance.insuranceamount %> 
+          <span>(<%= insurance.insurancedate %>)</span>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+
+  <script src="/scripts/insurance.js"></script>
+</body>
+</html>

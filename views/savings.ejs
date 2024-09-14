@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Dashboard</title>
+    <link rel="stylesheet" href="/css/savings.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Savings Dashboard</h1>
+        </header>
+
+        <main class="dashboard-main">
+            <section class="form-section">
+                <h2>Add a New Saving</h2>
+                <form id="savings-form" action="/savings" method="POST">
+                    <div class="form-field">
+                        <input type="text" name="savingname" placeholder="Enter Saving Name" required>
+                    </div>
+                    <div class="form-field">
+                        <input type="number" name="savingamount" placeholder="Enter Amount" required>
+                    </div>
+                    <div class="form-field">
+                        <input type="date" name="savingdate" required>
+                    </div>
+                    <button type="submit" class="add-btn">Add Saving</button>
+                </form>
+            </section>
+
+            <section class="savings-section">
+                <h2>Savings List</h2>
+                <div class="savings-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Saving Name</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% savings.forEach(saving => { %>
+                                <tr>
+                                    <td><%= saving.savingname %></td>
+                                    <td><%= saving.savingamount %></td>
+                                    <td><%= saving.savingdate %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="total-savings">
+                    <h3>Total Savings: $<%= totalSavings.toFixed(2) %></h3>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

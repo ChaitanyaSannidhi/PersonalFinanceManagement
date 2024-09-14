@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMI Tracker</title>
+  <link rel="stylesheet" href="/css/emi.css">
+</head>
+<body>
+  <div class="container">
+    <h1>EMI Tracker</h1>
+
+    <form id="emiForm" action="/emi" method="POST">
+      <label for="eminame">EMI Description:</label>
+      <input type="text" id="eminame" name="eminame" required>
+
+      <label for="emiamount">Amount:</label>
+      <input type="number" id="emiamount" name="emiamount" required>
+
+      <label for="emidate">Due Date:</label>
+      <input type="date" id="emidate" name="emidate" required>
+
+      <button type="submit">Add EMI</button>
+    </form>
+
+    <h2>Total EMI Payments: $<span id="totalEmi"><%= totalEmi %></span></h2>
+
+    <ul id="emiList">
+      <% emis.forEach(function(emi) { %>
+        <li>
+          <strong><%= emi.eminame %>:</strong> $<%= emi.emiamount %> 
+          <span>(<%= emi.emidate %>)</span>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+
+  <script src="/scripts/emi.js"></script>
+</body>
+</html>

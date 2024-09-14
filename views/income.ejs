@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Tracker</title>
+  <link rel="stylesheet" href="/css/income.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Income Tracker</h1>
+    
+    <form id="incomeForm" action="/income" method="POST">
+      <label for="incomename">Income Source:</label>
+      <input type="text" id="incomename" name="incomename" required>
+      
+      <label for="incomeamount">Amount:</label>
+      <input type="number" id="incomeamount" name="incomeamount" required>
+
+      <label for="incomedate">Date:</label>
+      <input type="date" id="incomedate" name="incomedate" required>
+
+      <button type="submit">Add Income</button>
+    </form>
+
+    <h2>Total Income: $<span id="totalIncome"><%= totalIncome %></span></h2>
+    
+    <ul id="incomeList">
+      <% incomes.forEach(function(income) { %>
+        <li>
+          <strong><%= income.incomename %>:</strong> $<%= income.incomeamount %> 
+          <span>(<%= income.incomedate %>)</span>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+
+  <script src="/scripts/income.js"></script>
+</body>
+</html>

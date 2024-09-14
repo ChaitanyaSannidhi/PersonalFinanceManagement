@@ -1,0 +1,95 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background-color: #1d617b;
+    padding: 15px;
+    text-align: center;
+}
+
+header .logo a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+/* Notifications container */
+.notifications-container {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.notifications-container h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: left;
+}
+
+.notification-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.notification-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f0f8ff;
+    border-left: 5px solid #1d617b;
+    font-size: 16px;
+}
+/* Ensure the body takes up the full viewport height and positions content accordingly */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: #1d617b;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    margin-top: auto; 
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer a {
+    color: #80bfff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .social-media {
+    margin-bottom: 10px;
+}
+
+footer .social-media a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .social-media i {
+    margin-right: 5px;
+}
+
+
